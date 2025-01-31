@@ -1,5 +1,9 @@
 import React from "react";
 
+/**
+ * Renders the movie details page with a title.
+ * @returns {JSX.Element} A main section containing the movie details page heading.
+ */
 export default function PageMovieDetails() {
   return (
     <main>

@@ -1,6 +1,13 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
+/**
+ * Renders the navigation bar for the application.
+ * 
+ * @returns {JSX.Element} A navigation component with links to Home, About, and Favorites pages.
+ * @description Creates a responsive navigation menu using React Router's NavLink components.
+ * Each link is styled to appear bold when the corresponding route is active.
+ */
 export default function Nav() {
   return (
     <nav>

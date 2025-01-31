@@ -1,5 +1,9 @@
 import React from "react";
 
+/**
+ * Renders the footer section of the webpage.
+ * @returns {JSX.Element} A footer element with a heading.
+ */
 export default function Footer() {
   return (
     <footer>
