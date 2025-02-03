@@ -1,6 +1,10 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
+import DetailsHero from '../components/details/DetailsHero';
+import Cast from '../components/details/Cast';
+import Trailers from '../components/details/Trailers';
+import Reviews from '../components/details/Reviews';
 const API_TOKEN = import.meta.env.VITE_TMDB_API_TOKEN;
 
 export default function PageMovieDetails() {
@@ -16,6 +20,18 @@ export default function PageMovieDetails() {
 
   return (
     <main>
+      <section>
+        <DetailsHero />
+      </section>
+      <section>
+        <Cast />
+      </section>
+      <section>
+        <Trailers />
+      </section>
+      <section>
+        <Reviews />
+      </section>
       {data && (
         <>
           <img

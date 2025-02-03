@@ -2,6 +2,9 @@ import React from 'react';
 import MovieCard from '../components/MovieCard';
 import { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
+import HomeHero from '../components/home/HomeHero';
+import Recommended from '../components/home/Recommended';
+import BrowseByGenre from '../components/home/BrowseByGenre';
 const API_TOKEN = import.meta.env.VITE_TMDB_API_TOKEN;
 
 export default function PageHome() {
@@ -18,20 +21,31 @@ export default function PageHome() {
 
   return (
     <main>
-      <h1>Home</h1>
-      <select onChange={handleMovieListsChange}>
-        <option value="filter_options">Filter Options</option>
-        <option value="now_playing">Now Playing</option>
-        <option value="popular">Popular</option>
-        <option value="top_rated">Top Rated</option>
-        <option value="upcoming">Upcoming</option>
-      </select>
-      <ul>
-        {data?.results &&
-          data.results.map((movieDetails) => (
-            <MovieCard key={movieDetails.id} details={movieDetails} />
-          ))}
-      </ul>
+      <section>
+        <HomeHero />
+      </section>
+      <section>
+        <h2>{movieList}</h2>
+        <select onChange={handleMovieListsChange}>
+          <option value="filter_options">Filter Options</option>
+          <option value="now_playing">Now Playing</option>
+          <option value="popular">Popular</option>
+          <option value="top_rated">Top Rated</option>
+          <option value="upcoming">Upcoming</option>
+        </select>
+        <ul>
+          {data?.results &&
+            data.results.map((movieDetails) => (
+              <MovieCard key={movieDetails.id} details={movieDetails} />
+            ))}
+        </ul>
+      </section>
+      <section>
+        <Recommended />
+      </section>
+      <section>
+        <BrowseByGenre /> 
+      </section>
     </main>
   );
 }
