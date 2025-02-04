@@ -20,9 +20,9 @@ export default function PageHome() {
   }
 
   return (
-    <main>
+    <main className="text-(--color-neutral-light)">
       <section>
-        <HomeHero />
+        <HomeHero details={data?.results[0]} />
       </section>
       <section>
         <h2>{movieList}</h2>
@@ -33,7 +33,7 @@ export default function PageHome() {
           <option value="top_rated">Top Rated</option>
           <option value="upcoming">Upcoming</option>
         </select>
-        <ul>
+        <ul >
           {data?.results &&
             data.results.map((movieDetails) => (
               <MovieCard key={movieDetails.id} details={movieDetails} />
@@ -41,10 +41,10 @@ export default function PageHome() {
         </ul>
       </section>
       <section>
-        <Recommended />
+        <Recommended details={data?.results[0].id} />
       </section>
       <section>
-        <BrowseByGenre /> 
+        <BrowseByGenre />
       </section>
     </main>
   );
@@ -52,7 +52,7 @@ export default function PageHome() {
 
 const getMovieData = async (movieList) => {
   console.log(movieList);
-  if (movieList === null) {
+  if (movieList === null || movieList === "filter_options") {
     movieList = 'now_playing';
   }
 

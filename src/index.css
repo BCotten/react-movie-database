@@ -1,1 +1,27 @@
 @import 'tailwindcss';
+
+@theme {
+  --font-base: Quicksand, serif;
+  --font-title: Sarala, serif;
+
+    /* Neutrals */
+    --color-neutral-light: #E7E7E7; /* Lightest neutral (white) */
+    --color-neutral-dark: #101338;  /* Darkest neutral */
+
+    /* Primary Colors */
+    --color-primary-600: #0A1045;  /* Dark primary */
+    --color-primary-500: #283254;   /* Main primary */
+    --color-primary-400: #5674B9B8; /* Light primary with transparency */
+
+    /* Secondary Colors */
+    --color-secondary-600: #0C142F; /* Dark secondary */
+    --color-secondary-500: #0A0F40; /* Main secondary */
+    --color-secondary-400: #9FC4E4; /* Light secondary */
+
+    /* Accent Colors */
+    --color-accent-blue-600: #8EB8F8; /* Dark blue accent */
+    --color-accent-blue-500: #AAD2F3; /* Main blue accent */
+    --color-accent-blue-400: #B8E5FA; /* Light blue accent */
+    --color-accent-blue-300: #B9E5FB; /* Lighter blue accent */
+    --color-accent-blue-200: #D8F0FC; /* Lightest blue accent */
+}
