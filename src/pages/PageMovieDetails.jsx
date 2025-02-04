@@ -11,6 +11,7 @@ export default function PageMovieDetails() {
   const url = useLocation(); // current url
   const id = url.pathname.slice(9); // current url id
 
+
   const { data } = useQuery({
     queryKey: [id],
     queryFn: () => getSingleMovieData(id),
@@ -19,19 +20,23 @@ export default function PageMovieDetails() {
   console.log(data);
 
   return (
-    <main>
+    <main className="text-(--color-neutral-light)">
       <section>
-        <DetailsHero />
+        <DetailsHero details={data}/>
       </section>
       <section>
-        <Cast />
+        {/* data.credits.cast */}
+        <Cast details={data.credits.cast}/>
       </section>
       <section>
-        <Trailers />
+        {/* data.videos.results */}
+        <Trailers details={data.videos.results}/>
       </section>
       <section>
-        <Reviews />
+        {/* data.reviews.results */}
+        <Reviews details={data.reviews.results}/>
       </section>
+      {/* below to be deleted later but there for reference for now. */}
       {data && (
         <>
           <img
