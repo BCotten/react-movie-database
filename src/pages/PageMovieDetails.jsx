@@ -26,15 +26,15 @@ export default function PageMovieDetails() {
       </section>
       <section>
         {/* data.credits.cast */}
-        <Cast details={data.credits.cast}/>
+        <Cast details={data?.credits?.cast}/>
       </section>
       <section>
         {/* data.videos.results */}
-        <Trailers details={data.videos.results}/>
+        <Trailers details={data?.videos?.results}/>
       </section>
       <section>
         {/* data.reviews.results */}
-        <Reviews details={data.reviews.results}/>
+        <Reviews details={data?.reviews?.results}/>
       </section>
       {/* below to be deleted later but there for reference for now. */}
       {data && (

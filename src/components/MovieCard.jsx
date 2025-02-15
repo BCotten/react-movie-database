@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 export default function MovieCard(props) {
   const {details} = props;
-  const id = `/movie/id${details.id}`
+  const id = `/movie/id${details?.id}`
   console.log(details);
 
   return (
@@ -14,7 +14,6 @@ export default function MovieCard(props) {
       <p>{details.release_date}</p>
       <p>{details.overview}</p>
       <Link to={id}>More Details</Link>
-
     </li>
   );
 }

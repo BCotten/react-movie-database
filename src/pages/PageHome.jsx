@@ -5,6 +5,7 @@ import { useQuery } from '@tanstack/react-query';
 import HomeHero from '../components/home/HomeHero';
 import Recommended from '../components/home/Recommended';
 import BrowseByGenre from '../components/home/BrowseByGenre';
+
 const API_TOKEN = import.meta.env.VITE_TMDB_API_TOKEN;
 
 export default function PageHome() {
@@ -19,9 +20,11 @@ export default function PageHome() {
     setMovieList(e.target.value);
   }
 
+
+
   return (
     <main className="text-(--color-neutral-light)">
-      <section>
+      <section className='h-[75vh] '>
         <HomeHero details={data?.results[0]} />
       </section>
       <section>
@@ -71,3 +74,5 @@ const getMovieData = async (movieList) => {
   }
   return response.json();
 };
+
+
