@@ -5,7 +5,8 @@
   --font-title: Sarala, serif;
 
   /* Neutrals */
-  --color-neutral-light: #e7e7e7; /* Lightest neutral (white) */
+  --color-neutral-lighter: #F0F0F4; /* Lightest neutral (white) */
+  --color-neutral-light: #e7e7e7; /* Light neutral (white) */
   --color-neutral-dark: #101338; /* Darkest neutral */
 
   /* Primary Colors */
@@ -25,5 +26,4 @@
   --color-accent-blue-400: #b8e5fa; /* Light blue accent */
   --color-accent-blue-300: #b9e5fb; /* Lighter blue accent */
   --color-accent-blue-200: #d8f0fc; /* Lightest blue accent */
-
 }

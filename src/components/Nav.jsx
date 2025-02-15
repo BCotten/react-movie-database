@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 
 export default function Nav() {
   return (
-    <nav className="md:bg-transparent md:text-xl md:px-10 md:block md:top-0 md:bottom-auto md:static text-base font-(--font-base) fixed bottom-0 left-0 right-0 text-(--color-accent-blue-600) bg-(--color-neutral-dark)">
+    <nav className="md:bg-transparent md:text-xl md:px-10 md:block md:top-0 md:bottom-auto md:static text-base font-(--font-base) fixed bottom-0 left-0 right-0 text-(--color-accent-blue-600) md:text-(--color-neutral-dark) bg-(--color-neutral-dark)">
       <ul className="md:justify-end md:gap-20 flex justify-around items-center p-2.5 ">
         <li className='md:mr-auto'>
           <NavLink
@@ -39,7 +39,7 @@ export default function Nav() {
         </li>
         <li>
           <NavLink
-            className={({ isActive }) => (isActive ? 'font-bold flex flex-col items-center hover:text-(--color-neutral-light)' : 'flex flex-col items-center hover:text-(--color-neutral-light)')}
+            className={({ isActive }) => (isActive ? 'font-bold flex flex-col items-center hover:text-(--color-neutral-light) md:p-3 md:bg-(--color-accent-blue-300)/10 md:bg-clip-padding md:backdrop-filter md:backdrop-blur-sm md:backdrop-saturate-100 md:backdrop-contrast-100 md:rounded-md md:border md:border-(--color-accent-blue-300)' : 'flex flex-col items-center hover:text-(--color-neutral-light) md:p-3 md:bg-(--color-accent-blue-300)/10 md:bg-clip-padding md:backdrop-filter md:backdrop-blur-sm md:backdrop-saturate-100 md:backdrop-contrast-100 md:rounded-md md:border md:border-(--color-accent-blue-300) md:font-medium')}
             to="/about"
           >
             <svg
@@ -61,7 +61,7 @@ export default function Nav() {
         </li>
         <li>
           <NavLink
-            className={({ isActive }) => (isActive ? 'font-bold flex flex-col items-center hover:text-(--color-neutral-light)' : 'flex flex-col items-center hover:text-(--color-neutral-light)')}
+            className={({ isActive }) => (isActive ? 'font-bold flex flex-col items-center hover:text-(--color-neutral-light) md:p-3 md:bg-(--color-accent-blue-300)/10 md:bg-clip-padding md:backdrop-filter md:backdrop-blur-sm md:backdrop-saturate-100 md:backdrop-contrast-100 md:rounded-md md:border md:border-(--color-accent-blue-300)' : 'flex flex-col items-center hover:text-(--color-neutral-light) md:p-3 md:bg-(--color-accent-blue-300)/10 md:bg-clip-padding md:backdrop-filter md:backdrop-blur-sm md:backdrop-saturate-100 md:backdrop-contrast-100 md:rounded-md md:border md:border-(--color-accent-blue-300) md:font-medium')}
             to="/favorites"
           >
             <svg
