@@ -12,17 +12,17 @@ export default function Footer() {
         </h1>
         <ul className="flex space-x-4">
           <li>
-            <a href="https://facebook.com" target="_blank" aria-label="Facebook">
+            <a href="https://facebook.com" target="_blank" rel="noreferrer" aria-label="Facebook">
               <img src="../../src/assets/facebook-icon.svg" alt="Facebook" className="w-8 h-8" />
             </a>
           </li>
           <li>
-            <a href="https://instagram.com" target="_blank" aria-label="Instagram">
+            <a href="https://instagram.com" target="_blank" rel="noreferrer" aria-label="Instagram">
               <img src="../../src/assets/instagram-icon.svg" alt="Instagram" className="w-8 h-8" />
             </a>
           </li>
           <li>
-            <a href="https://youtube.com" target="_blank" aria-label="YouTube">
+            <a href="https://youtube.com" target="_blank" rel="noreferrer" aria-label="YouTube">
               <img src="../../src/assets/youtube-icon.svg" alt="YouTube" className="w-8 h-8" />
             </a>
           </li>
