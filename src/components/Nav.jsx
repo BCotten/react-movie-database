@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 
 export default function Nav() {
   return (
-    <nav className="md:bg-transparent md:text-xl md:px-10 md:block md:top-0 md:bottom-auto md:static text-base font-base fixed bottom-0 left-0 right-0 text-(--color-accent-blue-600) md:text-(--color-neutral-dark) bg-(--color-neutral-dark)">
+    <nav className="md:bg-transparent md:text-xl md:px-10 md:block md:top-0 md:bottom-auto md:static text-base font-base fixed z-[999] bottom-0 left-0 right-0 text-(--color-accent-blue-600) md:text-(--color-neutral-dark) bg-(--color-neutral-dark)">
       <ul className="md:justify-end md:gap-20 flex justify-around items-center p-2.5 ">
         <li className='md:mr-auto'>
           <NavLink

@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 import { useQuery } from '@tanstack/react-query';
-const API_TOKEN = import.meta.env.VITE_TMDB_API_TOKEN;
+import { API_CONFIG } from '../../config/api';
 
 /* This gets the first Movie id in which ever current category is being used
 e.i now playing popular etc and populates a list of recommended based on that movie*/
@@ -39,12 +39,12 @@ const getSingleMovieData = async (movieID) => {
   console.log(movieID);
 
   const response = await fetch(
-    `https://api.themoviedb.org/3/movie/${movieID}?append_to_response=images,recommendations,language=en-US`,
+    `${API_CONFIG.baseUrl}/movie/${movieID}?append_to_response=images,recommendations,language=en-US`,
     {
       method: 'get',
       headers: {
         accept: 'application/json',
-        Authorization: API_TOKEN,
+        Authorization: API_CONFIG.token,
       },
     }
   );

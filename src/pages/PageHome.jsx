@@ -5,9 +5,10 @@ import { useQuery } from '@tanstack/react-query';
 import HomeHero from '../components/home/HomeHero';
 import Recommended from '../components/home/Recommended';
 import BrowseByGenre from '../components/home/BrowseByGenre';
+import { API_CONFIG } from '../config/api';
 
 
-const API_TOKEN = import.meta.env.VITE_TMDB_API_TOKEN;
+
 
 export default function PageHome() {
   const [movieList, setMovieList] = useState(null);
@@ -27,7 +28,7 @@ export default function PageHome() {
 
   return (
     <main className="text-(--color-neutral-light)">
-      <section className='h-[75vh] '>
+      <section className='h-screen '>
         <HomeHero details={data?.results[0]} />
       </section>
       <section>
@@ -63,12 +64,12 @@ const getMovieData = async (movieList) => {
   }
 
   const response = await fetch(
-    `https://api.themoviedb.org/3/movie/${movieList}?language=en-US&page=1`,
+    `${API_CONFIG.baseUrl}/movie/${movieList}?language=en-US&page=1`,
     {
       method: 'get',
       headers: {
         accept: 'application/json',
-        Authorization: API_TOKEN,
+        Authorization: API_CONFIG.token,
       },
     }
   );

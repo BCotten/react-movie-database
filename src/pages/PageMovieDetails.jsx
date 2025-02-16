@@ -5,7 +5,8 @@ import DetailsHero from '../components/details/DetailsHero';
 import Cast from '../components/details/Cast';
 import Trailers from '../components/details/Trailers';
 import Reviews from '../components/details/Reviews';
-const API_TOKEN = import.meta.env.VITE_TMDB_API_TOKEN;
+import { API_CONFIG } from '../config/api';
+
 
 export default function PageMovieDetails() {
   const url = useLocation(); // current url
@@ -66,12 +67,12 @@ const getSingleMovieData = async (movieID) => {
   console.log(movieID);
 
   const response = await fetch(
-    `https://api.themoviedb.org/3/movie/${movieID}?append_to_response=videos,images,credits,reviews,language=en-US`,
+    `${API_CONFIG.baseUrl}/movie/${movieID}?append_to_response=videos,images,credits,reviews,language=en-US`,
     {
       method: 'get',
       headers: {
         accept: 'application/json',
-        Authorization: API_TOKEN,
+        Authorization: API_CONFIG.token,
       },
     }
   );

@@ -28,8 +28,8 @@ export default function HomeHero(props) {
         <path strokeLinecap="round" strokeLinejoin="round" d="m5.25 4.5 7.5 7.5-7.5 7.5m6-15 7.5 7.5-7.5 7.5" />
         </svg>
       </div>
-      <img className='hidden md:block absolute top-0 left-0 z-[-1] w-full min-h-3/4 max-h-7/8' src={`https://image.tmdb.org/t/p/original/${details.backdrop_path}`} alt={details.title} />
-      <img className='md:hidden w-full absolute top-0 left-0 z-[-1] min-h-12/16 max-h-12/16' src={`https://image.tmdb.org/t/p/w500/${details.poster_path}`} alt={details.title} />
+      <img className='hidden xl:block absolute object-contain top-0 left-0 z-[-1] w-full max-h-full' src={`https://image.tmdb.org/t/p/original/${details.backdrop_path}`} alt={details.title} />
+      <img className='xl:hidden max-h-full w-full absolute  top-0 left-0 z-[-1]' src={`https://image.tmdb.org/t/p/w500/${details.poster_path}`} alt={details.title} />
       <div className='hidden md:block m-10 max-w-xl'>
         <div className='font-base flex flex-col gap-3 p-5 bg-(--color-accent-blue-300)/10 bg-clip-padding backdrop-filter backdrop-blur-sm backdrop-saturate-100 backdrop-contrast-100 rounded-md border border-(--color-accent-blue-300)'>
           <h1 className='font-title text-4xl text-(--color-neutral-lighter)'>{details.title}</h1>
