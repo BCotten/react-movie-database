@@ -6,6 +6,7 @@ import HomeHero from '../components/home/HomeHero';
 import Recommended from '../components/home/Recommended';
 import BrowseByGenre from '../components/home/BrowseByGenre';
 
+
 const API_TOKEN = import.meta.env.VITE_TMDB_API_TOKEN;
 
 export default function PageHome() {
@@ -19,6 +20,8 @@ export default function PageHome() {
   function handleMovieListsChange(e) {
     setMovieList(e.target.value);
   }
+
+
 
 
 
@@ -36,7 +39,7 @@ export default function PageHome() {
           <option value="top_rated">Top Rated</option>
           <option value="upcoming">Upcoming</option>
         </select>
-        <ul >
+        <ul className='grid gap-15 mx-18' style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(15.625rem, 1fr))' }}>
           {data?.results &&
             data.results.map((movieDetails) => (
               <MovieCard key={movieDetails.id} details={movieDetails} />

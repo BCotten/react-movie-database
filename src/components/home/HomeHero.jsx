@@ -3,6 +3,7 @@ import React from 'react';
 import { Link } from "react-router-dom";
 import changeDateFormat from '../../utilities/changeDateFormat';
 import changeRating from '../../utilities/changeRating';
+import Loader from '../Loader';
 
 
 export default function HomeHero(props) {
@@ -14,14 +15,15 @@ export default function HomeHero(props) {
   const date = changeDateFormat(details?.release_date);
   const rating = changeRating(details?.vote_average);
 
+  if (!details) return <Loader />
+
 
   return (
     <>
-    {/* Add loading component here... */}
     { details && (
       <>
-      <div className='md:hidden flex flex-row justify-start items-center gap-4 bg-(--color-primary-500) w-max p-3 mt-12 rounded-r-2xl'>
-        <h1 className=' text-xl text-(--color-neutral-lighter)'>{details.title}</h1>
+      <div className='md:hidden flex flex-row justify-start items-center gap-4 bg-(--color-primary-500) w-max p-3 mt-12 rounded-r-2xl font-base'>
+        <h1 className=' text-xl text-(--color-neutral-lighter) font-title'>{details.title}</h1>
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
         <path strokeLinecap="round" strokeLinejoin="round" d="m5.25 4.5 7.5 7.5-7.5 7.5m6-15 7.5 7.5-7.5 7.5" />
         </svg>
@@ -29,13 +31,13 @@ export default function HomeHero(props) {
       <img className='hidden md:block absolute top-0 left-0 z-[-1] w-full min-h-3/4 max-h-7/8' src={`https://image.tmdb.org/t/p/original/${details.backdrop_path}`} alt={details.title} />
       <img className='md:hidden w-full absolute top-0 left-0 z-[-1] min-h-12/16 max-h-12/16' src={`https://image.tmdb.org/t/p/w500/${details.poster_path}`} alt={details.title} />
       <div className='hidden md:block m-10 max-w-xl'>
-        <div className='flex flex-col gap-3 p-5 bg-(--color-accent-blue-300)/10 bg-clip-padding backdrop-filter backdrop-blur-sm backdrop-saturate-100 backdrop-contrast-100 rounded-md border border-(--color-accent-blue-300)'>
-          <h1 className=' text-4xl text-(--color-neutral-lighter)'>{details.title}</h1>
+        <div className='font-base flex flex-col gap-3 p-5 bg-(--color-accent-blue-300)/10 bg-clip-padding backdrop-filter backdrop-blur-sm backdrop-saturate-100 backdrop-contrast-100 rounded-md border border-(--color-accent-blue-300)'>
+          <h1 className='font-title text-4xl text-(--color-neutral-lighter)'>{details.title}</h1>
           <p>{date} | {rating}</p>
           <p>{details.overview}</p>
         </div>
         <div className='flex items-center gap-10 mt-10'>
-          <Link className=' text-2xl bg-(--color-primary-500) px-12 py-2 rounded-lg outline-solid outline-(--color-accent-blue-300) hover:bg-(--color-primary-600)' to={id}>More Details</Link>
+          <Link className='font-base text-2xl bg-(--color-primary-500) px-12 py-2 rounded-lg outline-solid outline-(--color-accent-blue-300) hover:bg-(--color-primary-600)' to={id}>More Details</Link>
           {/* replace below with icon button component later */}
           <div className='bg-(--color-primary-500) p-2 rounded-full'>
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-10">
