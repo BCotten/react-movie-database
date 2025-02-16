@@ -1,11 +1,14 @@
 import React from "react";
+import { NavLink } from 'react-router-dom';
 
 export default function Footer() {
   return (
     <footer className="bg-neutral-900 p-6 text-white flex justify-between items-center relative">
       <section className="flex flex-col items-start space-y-3">
         <h1>
-            <img src="../../src/assets/moviefix-logo.png" alt="moviefix" className="h-10" />
+        <NavLink to="/" aria-label="Movieflix Home">
+            <img src="../../src/assets/moviefix-logo.png" alt="moviefix" className="h-12" />
+          </NavLink>
         </h1>
         <ul className="flex space-x-4">
           <li>
@@ -30,7 +33,7 @@ export default function Footer() {
         <ul className="space-y-2 text-right">
           <li><a href="#" className="hover:underline">Contact us</a></li>
           <li><a href="#" className="hover:underline">Careers</a></li>
-          <li><a href="#" className="hover:underline">About</a></li>
+          <li><NavLink to="/about" className="hover:underline">About</NavLink></li>
         </ul>
       </section>
     </footer>
