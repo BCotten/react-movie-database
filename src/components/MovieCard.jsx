@@ -5,12 +5,13 @@ import changeDateFormat from "../utilities/changeDateFormat";
 import changeRating from "../utilities/changeRating";
 import changeMaxOverviewLength from "../utilities/changeMaxOverviewLength";
 import Loader from "./Loader";
-import { WishlistIcon, InfoIcon, HeartIcon, ThumbUpIcon } from "./Icons";
+import IconButton from "./IconButton";
+import { handleAddToFavorites, handleAddToWishlist } from "../utilities/AddToStorage";
+import { InfoIcon, ThumbUpIcon } from "./Icons";
 
 
 
-export default function MovieCard(props) {
-  const {details} = props;
+export default function MovieCard({details}) {
   const id = `/movie/id${details?.id}`
 
   const date = details?.release_date ? changeDateFormat(details.release_date) : 'Release date unavailable';
@@ -32,7 +33,7 @@ export default function MovieCard(props) {
         </div>
         <p>{overview}</p>
         <div className="flex flex-row align-self-end px-5 mt-auto">
-          <WishlistIcon className="size-8" />
+          <IconButton icon="wishlist" onClick={() => handleAddToWishlist(details.id)} className="hover:bg-(--color-accent-blue-300)" />
           <Link to={id} className="justify-self-end ml-auto">
             <InfoIcon className="size-8" />
           </Link>
@@ -44,7 +45,7 @@ export default function MovieCard(props) {
             <p className="font-title text-(--color-neutral-light)">{details.title}</p>
             <p className="font-title text-(--color-neutral-light)">{date}</p>
           </div>
-          <HeartIcon className="size-8" />
+          <IconButton icon="heart" onClick={() => handleAddToFavorites(details.id)} className="hover:bg-(--color-accent-blue-300)" />
       </div>
     </li>
   );

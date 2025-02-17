@@ -1,8 +1,7 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 
-export default function DetailsHero(props) {
-  const {details} = props;
+export default function DetailsHero({details}) {
   console.log(details);
   return (
     <>

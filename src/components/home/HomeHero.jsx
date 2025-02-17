@@ -7,8 +7,7 @@ import Loader from '../Loader';
 import { API_CONFIG } from '../../config/api';
 import { HeartIcon, WishlistIcon, ChevronDoubleRightIcon } from '../Icons';
 
-export default function HomeHero(props) {
-  const { details } = props;
+export default function HomeHero({details}) {
   const id = `/movie/id${details?.id}`;
 
   console.log({ details });
