@@ -13,9 +13,9 @@ export default function MovieCard(props) {
   const {details} = props;
   const id = `/movie/id${details?.id}`
 
-  const date = changeDateFormat(details?.release_date);
-  const rating = changeRating(details?.vote_average);
-  const overview = changeMaxOverviewLength(details?.overview);
+  const date = details?.release_date ? changeDateFormat(details.release_date) : 'Release date unavailable';
+  const rating = details?.vote_average ? changeRating(details.vote_average) : 'Rating unavailable';
+  const overview = details?.overview ? changeMaxOverviewLength(details.overview) : 'No overview available';
 
   if (!details) return <Loader />
 
