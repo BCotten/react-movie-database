@@ -3,10 +3,10 @@ import { NavLink } from 'react-router-dom';
 
 export default function Footer() {
   return (
-    <footer className="bg-neutral-900 p-6 text-white flex justify-between items-center relative">
+    <footer className="bg-(--color-neutral-dark) font-base p-6 text-(--color-neutral-light) flex justify-between items-center relative">
       <section className="flex flex-col items-start space-y-3">
         <h1>
-        <NavLink to="/" aria-label="Movieflix Home">
+        <NavLink to="/" aria-label="Moviefix Home">
             <img src="../../src/assets/moviefix-logo.png" alt="moviefix" className="h-12" />
           </NavLink>
         </h1>
