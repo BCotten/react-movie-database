@@ -24,11 +24,11 @@ export default function Recommended(props) {
       <p>{data?.recommendations?.results[0].release_date}</p>
       <p>{data?.recommendations?.results[0].runtime}</p>
       <img
-        src={`https://image.tmdb.org/t/p/w342/${data?.recommendations?.results[0].backdrop_path}`}
+        src={`${API_CONFIG.imagesUrl}w342/${data?.recommendations?.results[0].backdrop_path}`}
         alt={data?.recommendations?.results[0].title}
       />
       <img
-        src={`https://image.tmdb.org/t/p/w342/${data?.recommendations?.results[0].poster_path}`}
+        src={`${API_CONFIG.imagesUrl}w342/${data?.recommendations?.results[0].poster_path}`}
         alt={data?.recommendations?.results[0].title}
       />
     </>
