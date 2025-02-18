@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink } from 'react-router-dom';
+import { InstagramIcon, FacebookIcon, YoutubeIcon } from "./Icons";
 
 export default function Footer() {
   return (
@@ -13,17 +14,17 @@ export default function Footer() {
         <ul className="flex space-x-4">
           <li>
             <a href="https://facebook.com" target="_blank" rel="noreferrer" aria-label="Facebook">
-              <img src="../../src/assets/facebook-icon.svg" alt="Facebook" className="w-8 h-8" />
+              <FacebookIcon className="size-9"/>
             </a>
           </li>
           <li>
             <a href="https://instagram.com" target="_blank" rel="noreferrer" aria-label="Instagram">
-              <img src="../../src/assets/instagram-icon.svg" alt="Instagram" className="w-8 h-8" />
+              <InstagramIcon className="size-9"/>
             </a>
           </li>
           <li>
             <a href="https://youtube.com" target="_blank" rel="noreferrer" aria-label="YouTube">
-              <img src="../../src/assets/youtube-icon.svg" alt="YouTube" className="w-8 h-8" />
+              <YoutubeIcon className="size-9"/>
             </a>
           </li>
         </ul>

@@ -5,9 +5,10 @@ import changeDateFormat from '../../utilities/changeDateFormat';
 import changeRating from '../../utilities/changeRating';
 import Loader from '../Loader';
 import { API_CONFIG } from '../../config/api';
-import { HeartIcon, WishlistIcon, ChevronDoubleRightIcon } from '../Icons';
+import { ChevronDoubleRightIcon } from '../Icons';
+import IconButton from '../IconButton';
 
-export default function HomeHero({details}) {
+export default function HomeHero({ details }) {
   const id = `/movie/id${details?.id}`;
 
   console.log({ details });
@@ -65,13 +66,20 @@ export default function HomeHero({details}) {
               >
                 More Details
               </Link>
-              {/* replace below with icon button component later */}
-              <div className="bg-(--color-primary-500) p-2 rounded-full">
-                <WishlistIcon className="size-10" />
-              </div>
-              <div className="bg-(--color-primary-500) p-2 rounded-full">
-                <HeartIcon className="size-10" />
-              </div>
+              <IconButton
+                icon="wishlist"
+                id={details.id}
+                className="bg-(--color-primary-500) p-2 rounded-full hover:text-(--color-secondary-500) hover:bg-(--color-accent-blue-400) hover:rounded-full"
+                fill="none"
+                iconClassName="size-10"
+              />
+              <IconButton
+                icon="heart"
+                id={details.id}
+                className="bg-(--color-primary-500) p-2 rounded-full hover:text-(--color-secondary-500) hover:bg-(--color-accent-blue-400) hover:rounded-full"
+                fill="none"
+                iconClassName="size-10"
+              />
             </div>
           </div>
         </>
