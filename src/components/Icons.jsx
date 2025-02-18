@@ -1,11 +1,21 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 24 24"
+  fill="currentColor"
+  className="size-6"
+>
+  <path d="m11.645 20.91-.007-.003-.022-.012a15.247 15.247 0 0 1-.383-.218 25.18 25.18 0 0 1-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0 1 12 5.052 5.5 5.5 0 0 1 16.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 0 1-4.244 3.17 15.247 15.247 0 0 1-.383.219l-.022.012-.007.004-.003.001a.752.752 0 0 1-.704 0l-.003-.001Z" />
+</svg>;
+
 /* "size-6 md:hidden" */
 const HomeIcon = ({
   className = 'size-6',
   strokeWidth = 1.5,
   fill = 'none',
+  stroke = 'currentColor',
   ...props
 }) => (
   <svg
@@ -13,7 +23,7 @@ const HomeIcon = ({
     fill={fill}
     viewBox="0 0 24 24"
     strokeWidth={strokeWidth}
-    stroke="currentColor"
+    stroke={stroke}
     className={className}
     {...props}
   >
@@ -29,6 +39,7 @@ const AboutIcon = ({
   className = 'size-6',
   strokeWidth = 1.5,
   fill = 'none',
+  stroke = 'currentColor',
   ...props
 }) => (
   <svg
@@ -36,7 +47,7 @@ const AboutIcon = ({
     fill={fill}
     viewBox="0 0 24 24"
     strokeWidth={strokeWidth}
-    stroke="currentColor"
+    stroke={stroke}
     className={className}
     {...props}
   >
@@ -52,6 +63,7 @@ const FavoritesIcon = ({
   className = 'size-6',
   strokeWidth = 1.5,
   fill = 'none',
+  stroke = 'currentColor',
   ...props
 }) => (
   <svg
@@ -59,7 +71,7 @@ const FavoritesIcon = ({
     fill={fill}
     viewBox="0 0 24 24"
     strokeWidth={strokeWidth}
-    stroke="currentColor"
+    stroke={stroke}
     className={className}
     {...props}
   >
@@ -75,6 +87,7 @@ const HeartIcon = ({
   className = 'size-6',
   strokeWidth = 1.5,
   fill = 'none',
+  stroke = 'currentColor',
   ...props
 }) => (
   <svg
@@ -82,7 +95,7 @@ const HeartIcon = ({
     fill={fill}
     viewBox="0 0 24 24"
     strokeWidth={strokeWidth}
-    stroke="currentColor"
+    stroke={stroke}
     className={className}
     {...props}
   >
@@ -98,6 +111,7 @@ const WishlistIcon = ({
   className = 'size-6',
   strokeWidth = 1.5,
   fill = 'none',
+  stroke = 'currentColor',
   ...props
 }) => (
   <svg
@@ -105,7 +119,7 @@ const WishlistIcon = ({
     fill={fill}
     viewBox="0 0 24 24"
     strokeWidth={strokeWidth}
-    stroke="currentColor"
+    stroke={stroke}
     className={className}
     {...props}
   >
@@ -121,6 +135,7 @@ const ThumbUpIcon = ({
   className = 'size-6',
   strokeWidth = 1.5,
   fill = 'none',
+  stroke = 'currentColor',
   ...props
 }) => (
   <svg
@@ -128,7 +143,7 @@ const ThumbUpIcon = ({
     fill={fill}
     viewBox="0 0 24 24"
     strokeWidth={strokeWidth}
-    stroke="currentColor"
+    stroke={stroke}
     className={className}
     {...props}
   >
@@ -144,6 +159,7 @@ const InfoIcon = ({
   className = 'size-6',
   strokeWidth = 1.5,
   fill = 'none',
+  stroke = 'currentColor',
   ...props
 }) => (
   <svg
@@ -151,7 +167,7 @@ const InfoIcon = ({
     fill={fill}
     viewBox="0 0 24 24"
     strokeWidth={strokeWidth}
-    stroke="currentColor"
+    stroke={stroke}
     className={className}
     {...props}
   >
@@ -167,6 +183,7 @@ const ChevronDoubleRightIcon = ({
   className = 'size-6',
   strokeWidth = 1.5,
   fill = 'none',
+  stroke = 'currentColor',
   ...props
 }) => (
   <svg
@@ -174,7 +191,7 @@ const ChevronDoubleRightIcon = ({
     fill={fill}
     viewBox="0 0 24 24"
     strokeWidth={strokeWidth}
-    stroke="currentColor"
+    stroke={stroke}
     className={className}
     {...props}
   >
@@ -183,6 +200,84 @@ const ChevronDoubleRightIcon = ({
       strokeLinejoin="round"
       d="m5.25 4.5 7.5 7.5-7.5 7.5m6-15 7.5 7.5-7.5 7.5"
     />
+  </svg>
+);
+
+const FacebookIcon = ({
+  className = 'size-6 icon icon-tabler icons-tabler-outline icon- tabler-brand-facebook',
+  strokeWidth = 1.5,
+  fill = 'none',
+  stroke = 'currentColor',
+  ...props
+}) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill={fill}
+    stroke={stroke}
+    strokeWidth={strokeWidth}
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    className={className}
+    {...props}
+  >
+    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+    <path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3" />
+  </svg>
+);
+
+const InstagramIcon = ({
+  className = 'size-6 icon icon-tabler icons-tabler-outline icon-tabler-brand-instagram',
+  strokeWidth = 1.5,
+  fill = 'none',
+  stroke = 'currentColor',
+  ...props
+}) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill={fill}
+    stroke={stroke}
+    strokeWidth={strokeWidth}
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    className={className}
+    {...props}
+  >
+    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+    <path d="M4 8a4 4 0 0 1 4 -4h8a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-8a4 4 0 0 1 -4 -4z" />
+    <path d="M9 12a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" />
+    <path d="M16.5 7.5v.01" />
+  </svg>
+);
+
+const YoutubeIcon = ({
+  className = 'size-6 icon icon-tabler icons-tabler-outline icon-tabler-brand-youtube',
+  strokeWidth = 1.5,
+  fill = 'none',
+  stroke = 'currentColor',
+  ...props
+}) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill={fill}
+    stroke={stroke}
+    strokeWidth={strokeWidth}
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    className={className}
+    {...props}
+  >
+    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+    <path d="M2 8a4 4 0 0 1 4 -4h12a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-12a4 4 0 0 1 -4 -4v-8z" />
+    <path d="M10 9l5 3l-5 3z" />
   </svg>
 );
 
@@ -195,4 +290,7 @@ export {
   InfoIcon,
   WishlistIcon,
   ChevronDoubleRightIcon,
+  InstagramIcon,
+  FacebookIcon,
+  YoutubeIcon,
 };
