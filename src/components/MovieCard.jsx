@@ -33,9 +33,9 @@ export default function MovieCard({ details }) {
           />
         </div>
         <div className="absolute inset-0 bg-(--color-secondary-500) opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-4 flex flex-col gap-2">
-          <div className="flex flex-row gap-8 px-5 justify-center ">
-            <ThumbUpIcon className="size-9" />
-            <p className="font-title text-xl">{rating} liked it</p>
+          <div className="flex flex-row gap-8 px-5 justify-center items-center">
+            <ThumbUpIcon className="size-7" />
+            <p className="font-title text-m">{rating} liked it</p>
           </div>
           <p>{overview}</p>
           <div className="flex flex-row align-self-end px-5 mt-auto">
