@@ -5,11 +5,13 @@ import DetailsHero from '../components/details/DetailsHero';
 import Cast from '../components/details/Cast';
 import Trailers from '../components/details/Trailers';
 import Reviews from '../components/details/Reviews';
-const API_TOKEN = import.meta.env.VITE_TMDB_API_TOKEN;
+import { API_CONFIG } from '../config/api';
+
 
 export default function PageMovieDetails() {
   const url = useLocation(); // current url
   const id = url.pathname.slice(9); // current url id
+
 
   const { data } = useQuery({
     queryKey: [id],
@@ -19,19 +21,23 @@ export default function PageMovieDetails() {
   console.log(data);
 
   return (
-    <main>
+    <main className="text-(--color-neutral-light)">
       <section>
-        <DetailsHero />
+        <DetailsHero details={data}/>
       </section>
       <section>
-        <Cast />
+        {/* data.credits.cast */}
+        <Cast details={data?.credits?.cast}/>
       </section>
       <section>
-        <Trailers />
+        {/* data.videos.results */}
+        <Trailers details={data?.videos?.results}/>
       </section>
       <section>
-        <Reviews />
+        {/* data.reviews.results */}
+        <Reviews details={data?.reviews?.results}/>
       </section>
+      {/* below to be deleted later but there for reference for now. */}
       {data && (
         <>
           <img
@@ -61,12 +67,12 @@ const getSingleMovieData = async (movieID) => {
   console.log(movieID);
 
   const response = await fetch(
-    `https://api.themoviedb.org/3/movie/${movieID}?append_to_response=videos,images,credits,reviews,language=en-US`,
+    `${API_CONFIG.baseUrl}/movie/${movieID}?append_to_response=videos,images,credits,reviews,language=en-US`,
     {
       method: 'get',
       headers: {
         accept: 'application/json',
-        Authorization: API_TOKEN,
+        Authorization: API_CONFIG.token,
       },
     }
   );
