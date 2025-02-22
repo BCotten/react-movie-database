@@ -48,9 +48,6 @@ export default function PageHome() {
       <section>
         <Recommended details={data?.results[0].id} />
       </section>
-      <section>
-        <BrowseByGenre />
-      </section>
     </main>
   );
 }
