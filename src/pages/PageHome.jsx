@@ -8,41 +8,57 @@ import BrowseByGenre from '../components/home/BrowseByGenre';
 import { API_CONFIG } from '../config/api';
 
 export default function PageHome() {
-  const [movieList, setMovieList] = useState(null);
+  const [movieList, setMovieList] = useState('now_playing');
+  const [sectionTitle, setSectionTitle] = useState('Now Playing');
 
   const { data } = useQuery({
     queryKey: [movieList],
     queryFn: () => getMovieData(movieList),
   });
 
-  function handleMovieListsChange(e) {
-    setMovieList(e.target.value);
-  }
+  const handleMovieListsChange = (event) => {
+    const selectedOption = event.target.options[event.target.selectedIndex];
+    const selectedValue = event.target.value;
+
+    if (selectedValue !== 'filter_options') {
+      setSectionTitle(selectedOption.id);
+      setMovieList(selectedValue);
+    }
+  };
 
   return (
     <main className="text-(--color-neutral-light)">
       <section className="h-screen ">
         <HomeHero details={data?.results[0]} />
       </section>
-      <section>
-        <h2>{movieList}</h2>
-        <select onChange={handleMovieListsChange}>
-          <option value="filter_options">Filter Options</option>
-          <option value="now_playing">Now Playing</option>
-          <option value="popular">Popular</option>
-          <option value="top_rated">Top Rated</option>
-          <option value="upcoming">Upcoming</option>
-        </select>
-        <ul
-          className="grid gap-15 mx-18"
-          style={{
-            gridTemplateColumns: 'repeat(auto-fill, minmax(15.625rem, 1fr))',
-          }}
-        >
-          {data?.results &&
-            data.results.map((movieDetails) => (
-              <MovieCard key={movieDetails.id} details={movieDetails} />
-            ))}
+      <section className="pb-12 px-4 sm:px-6 lg:px-[75px] max-w-full mx-auto">
+        <div className="flex flex-row justify-between items-center mb-6">
+          <h2 className="text-2xl font-bold">{sectionTitle}</h2>
+          <select
+            onChange={handleMovieListsChange}
+            className="bg-white border border-gray-300 text-gray-700 py-2 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+          >
+            <option value="filter_options" id="Filter Options">
+              Filter Options
+            </option>
+            <option value="now_playing" id="Now Playing">
+              Now Playing
+            </option>
+            <option value="popular" id="Popular">
+              Popular
+            </option>
+            <option value="top_rated" id="Top Rated">
+              Top Rated
+            </option>
+            <option value="upcoming" id="Upcoming">
+              Upcoming
+            </option>
+          </select>
+        </div>
+        <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4 justify-items-center">
+          {data?.results.slice(0, 12).map((movieDetails) => (
+            <MovieCard key={movieDetails.id} details={movieDetails} />
+          ))}
         </ul>
       </section>
       <section>
