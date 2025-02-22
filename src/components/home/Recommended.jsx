@@ -22,7 +22,7 @@ export default function Recommended({ details }) {
 
   /* data.recommendations.results has the recommended movies for this id */
   return (
-    <section className="relative w-full h-[850px]">
+    <section className="relative w-full h-auto min-h-[850px] md:h-[850px]">
       {/* Background Image */}
       <div
         className="absolute inset-0 bg-cover bg-center"
@@ -35,24 +35,24 @@ export default function Recommended({ details }) {
       </div>
 
       {/* Content Container */}
-      <div className="relative z-10 flex items-center justify-center h-full px-8">
-        <div className="flex max-w-6xl w-full">
+      <div className="relative z-10 flex items-center justify-center h-full px-4 md:px-8 py-8 md:py-0">
+        <div className="flex flex-col md:flex-row max-w-6xl w-full">
           {/* Poster Image */}
           <img
             src={`${API_CONFIG.imagesUrl}w342/${data?.recommendations?.results[0].poster_path}`}
             alt={data?.recommendations?.results[0].title}
-            className="w-1/3 object-cover rounded-lg shadow-lg"
+            className="w-full md:w-1/3 object-cover rounded-lg shadow-lg mb-6 md:mb-0"
           />
 
           {/* Movie Details */}
-          <div className="w-2/3 ml-8 text-white">
-            <h2 className="text-4xl font-bold mb-4 font-title">
+          <div className="w-full md:w-2/3 md:ml-8 text-white">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 md:mb-10 font-title">
               Recommended Movie:
             </h2>
-            <h3 className="text-4xl font-bold mb-4 font-title">
+            <h3 className="text-3xl md:text-4xl font-bold mb-4 font-title">
               {data?.recommendations?.results[0].title}
             </h3>
-            <p className="text-lg mb-4 font-base">
+            <p className="text-base md:text-lg mb-4 font-base">
               {data?.recommendations?.results[0].overview}
             </p>
             <p className="text-sm mb-2 font-base">
