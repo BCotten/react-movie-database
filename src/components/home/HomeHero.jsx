@@ -45,7 +45,7 @@ export default function HomeHero({ details }) {
                 {details.title}
               </h1>
               <p>
-                {date} | {rating}
+                {date} | {rating} of Viewers Liked It
               </p>
               <p>{details.overview}</p>
             </div>

@@ -7,11 +7,9 @@ import Trailers from '../components/details/Trailers';
 import Reviews from '../components/details/Reviews';
 import { API_CONFIG } from '../config/api';
 
-
 export default function PageMovieDetails() {
   const url = useLocation(); // current url
   const id = url.pathname.slice(9); // current url id
-
 
   const { data } = useQuery({
     queryKey: [id],
@@ -23,42 +21,20 @@ export default function PageMovieDetails() {
   return (
     <main className="text-(--color-neutral-light)">
       <section>
-        <DetailsHero details={data}/>
+        <DetailsHero details={data} />
       </section>
       <section>
         {/* data.credits.cast */}
-        <Cast details={data?.credits?.cast}/>
+        <Cast details={data?.credits?.cast} />
       </section>
       <section>
         {/* data.videos.results */}
-        <Trailers details={data?.videos?.results}/>
+        <Trailers details={data?.videos?.results} />
       </section>
       <section>
         {/* data.reviews.results */}
-        <Reviews details={data?.reviews?.results}/>
+        <Reviews details={data?.reviews?.results} />
       </section>
-      {/* below to be deleted later but there for reference for now. */}
-      {data && (
-        <>
-          <img
-            src={`https://image.tmdb.org/t/p/w342/${data.backdrop_path}`}
-            alt={data.title}
-          />
-          <img
-            src={`https://image.tmdb.org/t/p/w342/${data.poster_path}`}
-            alt={data.title}
-          />
-          <h1>{data.title}</h1>
-          <p>{data.overview}</p>
-          <p>Release Date: {data.release_date}</p>
-          <p>Rating: {data.vote_average}</p>
-          <p>Runtime: {data.runtime} minutes</p>
-          <p>
-            Genres:{' '}
-            {data.genres && data.genres.map((genre) => genre.name).join(', ')}
-          </p>
-        </>
-      )}
     </main>
   );
 }
