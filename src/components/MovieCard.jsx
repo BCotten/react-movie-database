@@ -26,14 +26,14 @@ export default function MovieCard({ details }) {
   return (
     <li className="max-w-[250px] sm:max-w-[200px] md:max-w-[220px] lg:max-w-[250px] font-base text-(--color-accent-blue-400)">
       <div className="group relative">
-        <div>
+        <Link to={id} className="block">
           <img
             src={`https://image.tmdb.org/t/p/w342/${details.poster_path}`}
             alt={details.title}
-            className="w-full h-auto"
+            className="w-full h-full object-cover"
           />
-        </div>
-        <div className="absolute inset-0 bg-(--color-secondary-500) opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-2 sm:p-3 md:p-4 flex flex-col gap-1 sm:gap-2">
+        </Link>
+        <div className="absolute inset-0 bg-(--color-secondary-500) opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-2 sm:p-3 md:p-4 flex flex-col gap-1 sm:gap-2 hidden lg:flex">
           <div className="flex flex-row items-center justify-center space-x-2 sm:space-x-3 md:space-x-4">
             <ThumbUpIcon className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8" />
             <p className="font-title text-xs sm:text-sm md:text-base lg:text-lg whitespace-nowrap">
