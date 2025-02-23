@@ -66,6 +66,10 @@ export default function PageHome() {
       <section>
         <Recommended details={data?.results[0].id} />
       </section>
+{/* added browse by genre - Mark */}
+      <section>
+        <BrowseByGenre />
+      </section>
     </main>
   );
 }
