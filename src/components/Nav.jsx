@@ -6,38 +6,48 @@ const navItems = [
   {
     path: '/',
     label: 'Home',
-    icon: <HomeIcon className='size-8 md:hidden'/>,
+    icon: <HomeIcon className="size-8 md:hidden text-white" />,
     logo: '../../src/assets/moviefix-logo.png',
   },
   {
     path: '/about',
     label: 'About',
-    icon: <AboutIcon className='size-8 md:hidden'/>,
+    icon: <AboutIcon className="size-8 md:hidden text-white" />,
   },
   {
     path: '/favorites',
     label: 'Favorites',
-    icon: <FavoritesIcon className='size-8 md:hidden'/>,
+    icon: <FavoritesIcon className="size-8 md:hidden text-white" />,
   },
 ];
 
 const getNavLinkClass = (isActive) =>
-  `flex flex-col items-center hover:text-(--color-neutral-light) md:p-3 md:bg-(--color-accent-blue-300)/10 md:bg-clip-padding md:backdrop-filter md:backdrop-blur-sm md:backdrop-saturate-100 md:backdrop-contrast-100 md:rounded-md md:border md:border-(--color-accent-blue-300) ${
-    isActive ? 'font-bold' : 'md:font-medium'
-  }`;
+  `flex flex-col items-center font-base text-sm md:text-base
+   ${
+     isActive
+       ? 'font-bold text-[--color-accent-blue-600] md:text-[--color-accent-blue-600]'
+       : 'text-white hover:font-bold md:hover:underline'
+   }`;
 
 export default function Nav() {
   return (
-    <nav className="md:bg-transparent md:text-xl md:px-10 md:block md:top-0 md:bottom-auto md:static text-base font-base fixed z-[999] bottom-0 left-0 right-0 text-(--color-accent-blue-600) md:text-(--color-neutral-dark) bg-(--color-neutral-dark)">
-      <ul className="md:justify-end md:gap-20 flex justify-around items-center p-2.5">
+<nav className="fixed bottom-35 left-0 right-0 z-[999] bg-[--color-neutral-dark] md:static md:bg-transparent w-full font-[--font-base]">
+
+      <ul className="bg-(--color-neutral-dark) flex justify-around md:justify-end items-center p-2.5 pb-4 md:pb-2.5 md:px-10 md:gap-20">
         {navItems.map((item, index) => (
           <li key={item.path} className={index === 0 ? 'md:mr-auto' : ''}>
             <NavLink
               className={({ isActive }) => getNavLinkClass(isActive)}
               to={item.path}
             >
-              {item.icon}
-              <span className={index === 0 ? 'md:hidden' : ''}>{item.label}</span>
+              {item.icon && (
+                <div className="md:hidden">
+                  {React.cloneElement(item.icon, { className: 'size-10' })}
+                </div>
+              )}
+              {index !== 0 && (
+                <span className="hidden md:inline">{item.label}</span>
+              )}
               {index === 0 && (
                 <img
                   src={item.logo}

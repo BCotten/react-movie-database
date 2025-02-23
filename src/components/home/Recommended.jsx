@@ -41,7 +41,7 @@ export default function Recommended({ details }) {
           <img
             src={`${API_CONFIG.imagesUrl}w342/${data?.recommendations?.results[0].poster_path}`}
             alt={data?.recommendations?.results[0].title}
-            className="w-full md:w-1/3 object-cover rounded-lg shadow-lg mb-6 md:mb-0"
+            className="w-full md:w-1/3 object-cover rounded-lg shadow-lg mb-6 md:mb-35"
           />
 
           {/* Movie Details */}
@@ -64,7 +64,7 @@ export default function Recommended({ details }) {
             </p>
             <button
               // onClick={handleMoreInfo}
-              className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors duration-200 font-base"
+              className="mt-4 mb-50 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors duration-200 font-base"
             >
               More Info
             </button>
