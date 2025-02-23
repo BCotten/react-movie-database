@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React, { useRef } from 'react';
 
 export default function Cast({ details }) {
@@ -24,8 +25,9 @@ export default function Cast({ details }) {
   };
 
   return (
-    <section className="relative py-8">
+    <section className="relative py-8 px-4 sm:px-18">
       <div className="flex justify-between items-center mb-6">
+        {/* "Cast" Heading (Left-Aligned) */}
         <h2 className="text-2xl font-bold">Cast</h2>
         {/* Arrow Buttons (Top Right) */}
         <div className="flex gap-2">
