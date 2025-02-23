@@ -56,21 +56,22 @@ export default function PageHome() {
             </option>
           </select>
         </div>
+
         <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4">
           {data?.results.slice(0, 12).map((movieDetails) => (
-            <li key={movieDetails.id} className="aspect-[2/3]">
-              <MovieCard details={movieDetails} />
+            <li key={movieDetails.id} className="flex justify-center">
+              <div className="w-full max-w-[250px] aspect-[2/3]">
+                <MovieCard
+                  details={movieDetails}
+                  className="w-full h-full object-cover"
+                />
+              </div>
             </li>
           ))}
         </ul>
       </section>
-
       <section>
         <Recommended details={data?.results[0].id} />
-      </section>
-{/* added browse by genre - Mark */}
-      <section>
-        <BrowseByGenre />
       </section>
     </main>
   );
