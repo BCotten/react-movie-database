@@ -31,8 +31,9 @@ const getNavLinkClass = (isActive) =>
 
 export default function Nav() {
   return (
-    <nav className="fixed md:sticky bottom-0 md:top-0 left-0 right-0 z-[999] bg-[--color-neutral-dark] md:bg-transparent w-full font-[--font-base]">
-      <ul className="flex justify-around md:justify-end items-center p-2.5 pb-4 md:pb-2.5 md:px-10 md:gap-20">
+<nav className="fixed bottom-35 left-0 right-0 z-[999] bg-[--color-neutral-dark] md:static md:bg-transparent w-full font-[--font-base]">
+
+      <ul className="bg-(--color-neutral-dark) flex justify-around md:justify-end items-center p-2.5 pb-4 md:pb-2.5 md:px-10 md:gap-20">
         {navItems.map((item, index) => (
           <li key={item.path} className={index === 0 ? 'md:mr-auto' : ''}>
             <NavLink
