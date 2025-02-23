@@ -31,7 +31,8 @@ export default function PageHome() {
       <section className="h-screen ">
         <HomeHero details={data?.results[0]} />
       </section>
-      <section className="pb-12 px-4 sm:px-6 lg:px-[75px] max-w-full mx-auto">
+
+      <section className="py-12 px-4 sm:px-6 lg:px-[75px] max-w-full mx-auto">
         <div className="flex flex-row justify-between items-center mb-6">
           <h2 className="text-2xl font-bold">{sectionTitle}</h2>
           <select
@@ -61,6 +62,7 @@ export default function PageHome() {
           ))}
         </ul>
       </section>
+
       <section>
         <Recommended details={data?.results[0].id} />
       </section>
