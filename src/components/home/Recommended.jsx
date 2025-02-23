@@ -3,12 +3,24 @@ import React from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { API_CONFIG } from '../../config/api';
 import Loader from '../Loader';
+import { Link, useNavigate } from 'react-router-dom';
+import changeDateFormat from '../../utilities/changeDateFormat';
+import changeRating from '../../utilities/changeRating';
 
 /* This gets the first Movie id in which ever current category is being used
 e.i now playing popular etc and populates a list of recommended based on that movie*/
 
 export default function Recommended({ details }) {
   const id = details?.toString();
+
+  const date = changeDateFormat(details?.release_date);
+  const rating = changeRating(details?.vote_average);
+
+  const navigate = useNavigate();
+
+  const handleMoreInfo = () => {
+    navigate(`/movie/${data?.recommendations?.results[0].id}`);
+  };
 
   const { data } = useQuery({
     queryKey: [id],
@@ -57,13 +69,15 @@ export default function Recommended({ details }) {
             </p>
             <p className="text-sm mb-2 font-base">
               <span className="font-semibold">Release Date:</span>{' '}
-              {data?.recommendations?.results[0].release_date}
+              {changeDateFormat(data?.recommendations?.results[0].release_date)}
             </p>
             <p className="text-sm mb-2 font-base">
-              <span className="font-semibold">Rating:</span>
+              <span className="font-semibold">Rating:</span>{' '}
+              {changeRating(data?.recommendations?.results[0].vote_average)} of
+              viewers liked it
             </p>
             <button
-              // onClick={handleMoreInfo}
+              onClick={handleMoreInfo}
               className="mt-4 mb-50 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors duration-200 font-base"
             >
               More Info
