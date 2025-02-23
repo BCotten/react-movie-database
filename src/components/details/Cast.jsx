@@ -1,14 +1,4 @@
-// /* eslint-disable react/prop-types */
-// import React from 'react';
 
-// export default function Cast({ details }) {
-//   /* in details is a array of object each object being one cast member */
-//   console.log(details);
-//   return <></>;
-// }
-
-/* eslint-disable react/prop-types */
-/* eslint-disable react/prop-types */
 import React, { useRef } from 'react';
 
 export default function Cast({ details }) {
@@ -35,21 +25,24 @@ export default function Cast({ details }) {
   };
 
   return (
-    <section className="relative py-8">
+    <section className="relative py-8 px-4 sm:px-18">
       <div className="flex justify-between items-center mb-6">
+        {/* "Cast" Heading (Left-Aligned) */}
         <h2 className="text-2xl font-bold">Cast</h2>
         {/* Arrow Buttons (Top Right) */}
         <div className="flex gap-2">
+          {/* Left Arrow Button */}
           <button
             onClick={scrollLeft}
-            className="bg-white bg-opacity-75 rounded-full p-2 shadow-md hover:bg-opacity-100 transition-opacity duration-200"
+            className="w-10 h-10 flex items-center justify-center bg-transparent border-2 border-white rounded-full text-white hover:bg-white hover:text-black transition-colors duration-200"
             aria-label="Scroll left"
           >
             &larr;
           </button>
+          {/* Right Arrow Button */}
           <button
             onClick={scrollRight}
-            className="bg-white bg-opacity-75 rounded-full p-2 shadow-md hover:bg-opacity-100 transition-opacity duration-200"
+            className="w-10 h-10 flex items-center justify-center bg-transparent border-2 border-white rounded-full text-white hover:bg-white hover:text-black transition-colors duration-200"
             aria-label="Scroll right"
           >
             &rarr;
