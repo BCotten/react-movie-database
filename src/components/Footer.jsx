@@ -4,7 +4,7 @@ import { InstagramIcon, FacebookIcon, YoutubeIcon } from "./Icons";
 
 export default function Footer() {
   return (
-    <footer className="fixed bottom-0 left-0 right-0 bg-(--color-neutral-dark) font-base p-6 text-(--color-neutral-light) flex justify-between items-center z-10">
+    <footer className="fixed bottom-0 left-0 right-0 md:static bg-(--color-neutral-dark) font-base p-6 text-(--color-neutral-light) flex justify-between items-center z-10">
       <section className="flex flex-col items-start space-y-3">
         <h1>
           <NavLink to="/" aria-label="Moviefix Home">
