@@ -24,12 +24,13 @@ export default function MovieCard({ details }) {
   if (!details) return <Loader />;
 
   return (
-    <li className=" max-w-[250px] font-base text-(--color-accent-blue-400)">
-      <div className="group relative">
-        <div>
+    <li className="w-full h-full font-base text-(--color-accent-blue-400)">
+      <div className="group relative h-full">
+        <div className="w-full h-full overflow-hidden rounded-lg">
           <img
             src={`https://image.tmdb.org/t/p/w342/${details.poster_path}`}
             alt={details.title}
+            className="w-full h-full object-cover object-center"
           />
         </div>
         <div className="absolute inset-0 bg-(--color-secondary-500) opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-4 flex flex-col gap-2">
@@ -52,7 +53,7 @@ export default function MovieCard({ details }) {
           </div>
         </div>
       </div>
-      <div className="flex flex-row justify-between items-center">
+      <div className="flex flex-row justify-between items-center mt-2">
         <div>
           <p className="font-title text-(--color-neutral-light)">
             {details.title}

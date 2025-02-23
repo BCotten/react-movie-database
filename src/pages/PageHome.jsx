@@ -56,9 +56,11 @@ export default function PageHome() {
             </option>
           </select>
         </div>
-        <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4 justify-items-center">
+        <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4">
           {data?.results.slice(0, 12).map((movieDetails) => (
-            <MovieCard key={movieDetails.id} details={movieDetails} />
+            <li key={movieDetails.id} className="aspect-[2/3]">
+              <MovieCard details={movieDetails} />
+            </li>
           ))}
         </ul>
       </section>
