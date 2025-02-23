@@ -23,15 +23,14 @@ const navItems = [
 
 const getNavLinkClass = (isActive) =>
   `flex flex-col items-center font-base text-sm md:text-base
-   ${
-     isActive
-       ? 'font-bold text-[--color-accent-blue-600] md:text-[--color-accent-blue-600]'
-       : 'text-white hover:font-bold md:hover:underline'
-   }`;
+   ${isActive
+    ? 'font-bold text-[--color-accent-blue-600] md:text-[--color-accent-blue-600]'
+    : 'text-white hover:font-bold md:hover:underline'
+  }`;
 
 export default function Nav() {
   return (
-<nav className="fixed bottom-35 left-0 right-0 z-[999] bg-[--color-neutral-dark] md:static md:bg-transparent w-full font-[--font-base]">
+    <nav className="fixed bottom-35 left-0 right-0 z-[999] bg-[--color-neutral-dark] md:static md:bg-transparent w-full font-[--font-base]">
 
       <ul className="bg-(--color-neutral-dark) flex justify-around md:justify-end items-center p-2.5 pb-4 md:pb-2.5 md:px-10 md:gap-20">
         {navItems.map((item, index) => (
