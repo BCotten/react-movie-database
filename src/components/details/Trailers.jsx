@@ -17,7 +17,7 @@ export default function Trailers({ details }) {
       {/* Centered Video Container */}
       <div className="flex justify-center">
         {/* Embed YouTube Video */}
-        <div className="w-full max-w-[33%] aspect-video">
+        <div className="w-full max-w-[70%] sm:max-w-[33%] aspect-video">
           <iframe
             src={`https://www.youtube.com/embed/${trailer.key}`}
             title={trailer.name}

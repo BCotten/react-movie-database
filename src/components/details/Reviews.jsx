@@ -19,7 +19,8 @@ export default function Reviews({ details }) {
       <h2 className="text-2xl font-bold mb-6">Reviews</h2>
 
       {/* Review Container */}
-      <div className="flex flex-col items-center justify-center min-h-[300px]">
+      <div className="flex flex-col items-center justify-center min-h-[300px] mb-[200px] sm:mb-0">
+
         {/* Current Review */}
         <div className="text-center max-w-2xl mx-auto">
           <p className="text-lg italic">"{randomReviews[currentReviewIndex]?.content}"</p>
