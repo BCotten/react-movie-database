@@ -1,4 +1,3 @@
-
 import React, { useRef } from 'react';
 
 export default function Cast({ details }) {
@@ -56,17 +55,17 @@ export default function Cast({ details }) {
         className="flex overflow-x-auto gap-6 scrollbar-hide justify-center" // Center and space evenly
       >
         {details?.map((castMember) => (
-          <div key={castMember.id} className="flex-shrink-0 w-24 text-center">
+          <div key={castMember.id} className="flex-shrink-0 w-24 lg:w-32 text-center">
             {/* Circular Cast Image */}
             <img
               src={`https://image.tmdb.org/t/p/w200${castMember.profile_path}`}
               alt={castMember.name}
-              className="w-24 h-24 rounded-full object-cover mx-auto"
+              className="w-24 h-24 lg:w-32 lg:h-32 rounded-full object-cover mx-auto"
             />
             {/* Cast Name */}
-            <p className="mt-2 text-sm font-semibold">{castMember.name}</p>
+            <p className="mt-2 text-sm lg:text-base font-semibold">{castMember.name}</p>
             {/* Cast Character */}
-            <p className="text-xs text-gray-500">{castMember.character}</p>
+            <p className="text-xs lg:text-sm text-gray-500">{castMember.character}</p>
           </div>
         ))}
       </div>
