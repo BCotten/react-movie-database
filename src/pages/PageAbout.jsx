@@ -11,6 +11,10 @@ export default function PageAbout() {
         <p className="text-base md:text-lg leading-relaxed mb-3" >
           Our mission is to help you discover your next favorite film, one fix at a time. Dive in, and let your cinematic journey begin!
         </p>
+        <p>This project uses data from The Movie Database (TMDB). For more information, visit <a href="https://www.themoviedb.org" class="text-blue-500 hover:underline">themoviedb.org</a>
+        
+
+        </p>
       </section>
     </main>
   );
