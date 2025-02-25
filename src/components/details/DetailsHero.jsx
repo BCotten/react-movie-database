@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 import changeDateFormat from '../../utilities/changeDateFormat';
 import changeRating from '../../utilities/changeRating';
@@ -5,8 +6,6 @@ import IconButton from '../IconButton';
 
 export default function DetailsHero({ details }) {
   if (!details) return null;
-  const date = changeDateFormat(details?.release_date);
-  const rating = changeRating(details?.vote_average);
 
   return (
     <div className="relative w-full">

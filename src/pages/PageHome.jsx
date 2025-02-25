@@ -4,7 +4,6 @@ import { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import HomeHero from '../components/home/HomeHero';
 import Recommended from '../components/home/Recommended';
-import BrowseByGenre from '../components/home/BrowseByGenre';
 import { API_CONFIG } from '../config/api';
 
 export default function PageHome() {

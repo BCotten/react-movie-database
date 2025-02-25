@@ -7,9 +7,28 @@ import changeMaxOverviewLength from '../utilities/changeMaxOverviewLength';
 import Loader from './Loader';
 import IconButton from './IconButton';
 import { InfoIcon, ThumbUpIcon } from './Icons';
+import { MovieIdContext } from './context/MovieIdContext';
+import { useContext, useEffect, useState } from 'react';
+
+
 
 export default function MovieCard({ details }) {
+  const context = useContext(MovieIdContext);
+  const { favorites, wishlist } = context;
   const id = `/movie/id${details?.id}`;
+
+  const [isFavorite, setFillFavorites] = useState(false);
+  const [isInWishlist, setFillWishlist] = useState(false);
+
+
+  useEffect(() => {
+    setFillFavorites(favorites.includes(details?.id));
+  }, [favorites, details?.id]);
+
+  useEffect(() => {
+    setFillWishlist(wishlist.includes(details?.id));
+  }, [wishlist, details?.id]);
+
 
   const date = details?.release_date
     ? changeDateFormat(details.release_date)
@@ -33,7 +52,7 @@ export default function MovieCard({ details }) {
             className="w-full h-full object-cover"
           />
         </Link>
-        <div className="absolute inset-0 bg-(--color-secondary-500) opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-2 sm:p-3 md:p-4 flex flex-col gap-1 sm:gap-2 hidden lg:flex">
+        <div className="absolute inset-0 bg-(--color-secondary-500) opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-2 sm:p-3 md:p-4  flex-col gap-1 sm:gap-2 hidden lg:flex">
           <div className="flex flex-row items-center justify-center space-x-2 sm:space-x-3 md:space-x-4">
             <ThumbUpIcon className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8" />
             <p className="font-title text-xs sm:text-sm md:text-base lg:text-lg whitespace-nowrap">
@@ -49,7 +68,7 @@ export default function MovieCard({ details }) {
               icon="wishlist"
               id={details.id}
               className=""
-              fill="none"
+              fill={isInWishlist ? "full" : "none"}
               iconClassName="size-6 sm:size-7 md:size-8 lg:size-9 hover:text-(--color-secondary-500) hover:bg-(--color-accent-blue-400) hover:rounded-full"
             />
             <Link to={id} className="justify-self-end ml-auto">
@@ -58,7 +77,7 @@ export default function MovieCard({ details }) {
           </div>
         </div>
       </div>
-      <div className="flex flex-row justify-between items-center mt-2">
+      <div className="flex text-accent-blue-200 flex-row justify-between items-center mt-2">
         <div>
           <p className="font-title text-(--color-neutral-light) text-sm sm:text-base">
             {details.title}
@@ -71,9 +90,9 @@ export default function MovieCard({ details }) {
           icon="heart"
           id={details.id}
           className=""
-          fill="none"
+          fill={isFavorite ? "full" : "none"}
           stroke="currentColor"
-          iconClassName="size-6 sm:size-7 md:size-8 lg:size-9 hover:text-(--color-secondary-500) hover:bg-(--color-accent-blue-400) hover:rounded-full"
+          iconClassName="size-6 sm:size-7 md:size-8 lg:size-9 text-(--color-accent-blue-400) hover:text-(--color-secondary-500) hover:bg-(--color-accent-blue-400) hover:rounded-full"
         />
       </div>
     </li>
