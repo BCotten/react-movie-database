@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 import { Link } from 'react-router-dom';
 import changeDateFormat from '../../utilities/changeDateFormat';
@@ -6,9 +7,24 @@ import Loader from '../Loader';
 import { API_CONFIG } from '../../config/api';
 import { ChevronDoubleRightIcon } from '../Icons';
 import IconButton from '../IconButton';
+import { MovieIdContext } from '../context/MovieIdContext';
+import { useContext, useEffect, useState } from 'react';
 
 export default function HomeHero({ details }) {
+  const context = useContext(MovieIdContext);
+  const { favorites, wishlist } = context;
   const id = `/movie/id${details?.id}`;
+
+  const [isFavorite, setFillFavorites] = useState(false);
+  const [isInWishlist, setFillWishlist] = useState(false);
+
+    useEffect(() => {
+      setFillFavorites(favorites.includes(details?.id));
+    }, [favorites, details?.id]);
+
+    useEffect(() => {
+      setFillWishlist(wishlist.includes(details?.id));
+    }, [wishlist, details?.id]);
 
   const date = changeDateFormat(details?.release_date);
   const rating = changeRating(details?.vote_average);
@@ -59,14 +75,14 @@ export default function HomeHero({ details }) {
                 icon="wishlist"
                 id={details.id}
                 className="bg-(--color-primary-500) p-2 rounded-full hover:text-(--color-secondary-500) hover:bg-(--color-accent-blue-400) hover:rounded-full"
-                fill="none"
+                fill={isInWishlist ? "full" : "none"}
                 iconClassName="size-10"
               />
               <IconButton
                 icon="heart"
                 id={details.id}
                 className="bg-(--color-primary-500) p-2 rounded-full hover:text-(--color-secondary-500) hover:bg-(--color-accent-blue-400) hover:rounded-full"
-                fill="none"
+                fill={isFavorite? "full" : "none"}
                 iconClassName="size-10"
               />
             </div>
