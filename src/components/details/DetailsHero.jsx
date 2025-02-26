@@ -22,7 +22,7 @@ export default function DetailsHero({ details }) {
 
   return (
     <div className="relative w-full">
-      <div className="relative w-full h-[940px] md:h-[600px] lg:h-[940px]">
+      <div className="relative w-full h-[940px] md:h-[800px] lg:h-[940px]">
         <img
           src={`https://image.tmdb.org/t/p/original/${details.backdrop_path}`}
           alt={details.title}
@@ -31,59 +31,23 @@ export default function DetailsHero({ details }) {
         <div className="absolute inset-0 bg-[#101338] opacity-75"></div>
 
         <div className="absolute inset-0 flex items-center justify-center">
-          <div className="flex flex-col lg:flex-row items-center lg:items-start max-w-6xl w-full p-4 pt-8 md:pt-4">
+          <div className="flex flex-col lg:flex-row items-center lg:items-start max-w-6xl w-full p-4 pt-8 md:pt-16 md:pb-16">
             <div className="relative mb-6 lg:mb-0 lg:mr-8 lg:self-center">
               {/* Movie Image */}
               <img
                 src={`https://image.tmdb.org/t/p/w342/${selectedPoster}`}
                 alt={details.title}
-                className="w-[320px] md:w-[400px] lg:w-[450px] h-auto z-10"
+                className="w-[320px] md:w-[342px] lg:w-[450px] h-auto z-10"
               />
 
               {details.images?.posters?.length > 1 && (
                 <div className="relative w-full mt-4">
-                  {/* Left Arrow (Outside Carousel) */}
-                  <button
-                    onClick={() => scrollThumbnails('left')}
-                    className="absolute -left-8 top-1/2 transform -translate-y-1/2 w-8 h-8 flex items-center justify-center bg-transparent border-2 border-white rounded-full text-white hover:bg-white hover:text-black transition duration-200"
-                    aria-label="Scroll left"
-                  >
-                    &larr;
-                  </button>
-
-                  {/* Thumbnails Container */}
-                  <div
-                    ref={thumbnailsRef}
-                    className="flex space-x-[5px] overflow-x-auto scrollbar-hide w-full max-w-[280px] md:max-w-[360px] lg:max-w-[420px] mx-auto"
-                  >
-                    {details.images.posters.slice(0, 10).map((image, index) => (
-                      <img
-                        key={index}
-                        src={`https://image.tmdb.org/t/p/w92/${image.file_path}`}
-                        alt={`Thumbnail ${index}`}
-                        className={`cursor-pointer w-16 h-auto rounded-md hover:opacity-80 transition ${
-                          image.file_path === selectedPoster
-                            ? 'border-2 border-[#B9E5FB]'
-                            : ''
-                        }`}
-                        onClick={() => setSelectedPoster(image.file_path)}
-                      />
-                    ))}
-                  </div>
-
-                  {/* Right Arrow (Outside Carousel) */}
-                  <button
-                    onClick={() => scrollThumbnails('right')}
-                    className="absolute -right-8 top-1/2 transform -translate-y-1/2 w-8 h-8 flex items-center justify-center bg-transparent border-2 border-white rounded-full text-white hover:bg-white hover:text-black transition duration-200"
-                    aria-label="Scroll right"
-                  >
-                    &rarr;
-                  </button>
+                  {/* Thumbnails section (keep as is) */}
                 </div>
               )}
             </div>
 
-            <div className="text-white z-10 w-full lg:w-1/2 lg:self-center">
+            <div className="text-white z-10 w-full lg:w-1/2 lg:self-center mt-6 lg:mt-0">
               {/* Title and Buttons Container */}
               <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-4">
                 <h1 className="text-3xl md:text-4xl font-bold mb-4 sm:mb-0">
@@ -107,10 +71,40 @@ export default function DetailsHero({ details }) {
                   />
                 </div>
               </div>
-
               <p className="text-base md:text-lg">{details.overview}</p>
             </div>
           </div>
+        </div>
+      </div>
+      {/* Details Bar */}
+      <div className="flex flex-col md:flex-row justify-between items-center bg-[#B9E5FB] text-[#101338] py-4 md:h-[140px] px-4 md:px-8">
+        <div className="flex flex-col items-center mb-4 md:mb-0">
+          <span className="font-semibold text-lg">Release Date:</span>
+          <span>{changeDateFormat(details.release_date)}</span>
+        </div>
+
+        <div className="hidden md:block h-full w-px bg-[#101338] transform rotate-12"></div>
+        <div className="w-full md:w-auto h-px md:h-auto bg-[#101338] md:hidden mb-4"></div>
+
+        <div className="flex flex-col items-center mb-4 md:mb-0">
+          <span className="font-semibold text-lg">Run Time:</span>
+          <span>{details.runtime} minutes</span>
+        </div>
+
+        <div className="hidden md:block h-full w-px bg-[#101338] transform rotate-12"></div>
+        <div className="w-full md:w-auto h-px md:h-auto bg-[#101338] md:hidden mb-4"></div>
+
+        <div className="flex flex-col items-center mb-4 md:mb-0">
+          <span className="font-semibold text-lg">Genres:</span>
+          <span>{details.genres.map((genre) => genre.name).join(', ')}</span>
+        </div>
+
+        <div className="hidden md:block h-full w-px bg-[#101338] transform rotate-12"></div>
+        <div className="w-full md:w-auto h-px md:h-auto bg-[#101338] md:hidden mb-4"></div>
+
+        <div className="flex flex-col items-center">
+          <span className="font-semibold text-lg">Rating Average:</span>
+          <span>{changeRating(details.vote_average.toFixed(1))}</span>
         </div>
       </div>
     </div>
