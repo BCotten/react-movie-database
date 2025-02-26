@@ -32,6 +32,7 @@ const getNavLinkClass = (isActive) =>
 export default function Nav() {
   return (
     <>
+    <NavLink to="/" aria-label="Moviefix Home">
       <div className="absolute top-0 left-0 z-[1000] p-4 md:p-6">
         <img
           src={navItems[0].logo}
@@ -39,6 +40,7 @@ export default function Nav() {
           className="w-32 md:w-40 lg:w-48"
         />
       </div>
+      </NavLink>
       <nav className="fixed bottom-0 left-0 right-0 z-[999] bg-[--color-neutral-dark] md:static md:bg-transparent w-full font-[--font-base]">
         <ul className="bg-(--color-neutral-dark) flex justify-around md:justify-end items-center p-4 md:py-6 md:px-10 md:gap-20">
           {navItems.map((item, index) => (
