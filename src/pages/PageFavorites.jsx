@@ -4,8 +4,8 @@ import { NavLink } from 'react-router-dom';
 
 export default function PageMovieDetails() {
   return (
-    <main className="flex flex-col items-center justify-center min-h-screen text-white text-center px-4">
-      <section className="max-w-xl mt-[-400px] sm:mt-0">
+    <main className="text-(--color-neutral-light) flex flex-col items-center min-h-screen px-1">
+      <section className="text-center max-w-3xl mt-50 sm:mt-50">
         <h1 className="text-2xl md:text-4xl font-bold mb-4">
           Oops! You haven't selected any favorites yet!
         </h1>
