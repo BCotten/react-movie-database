@@ -7,7 +7,7 @@ const navItems = [
     path: '/',
     label: 'Home',
     icon: <HomeIcon className="size-8 md:hidden text-white" />,
-    logo: '/moviefix-logo.png',
+    logo: '/movie-database/moviefix-logo.png',
   },
   {
     path: '/about',
