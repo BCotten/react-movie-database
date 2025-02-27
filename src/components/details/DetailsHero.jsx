@@ -5,9 +5,7 @@ import changeRating from '../../utilities/changeRating';
 import IconButton from '../IconButton';
 import { MovieIdContext } from '../context/MovieIdContext';
 
-
 export default function DetailsHero({ details }) {
-  console.log(details.id);
   const context = useContext(MovieIdContext);
   const { favorites, wishlist } = context;
   if (!details) return null;
@@ -16,15 +14,14 @@ export default function DetailsHero({ details }) {
   const [isInWishlist, setFillWishlist] = useState(false);
 
   useEffect(() => {
-      setFillFavorites(favorites.includes(details?.id));
-    }, [favorites, details?.id]);
+    setFillFavorites(favorites.includes(details?.id));
+  }, [favorites, details?.id]);
 
-    useEffect(() => {
-      setFillWishlist(wishlist.includes(details?.id));
-    }, [wishlist, details?.id]);
+  useEffect(() => {
+    setFillWishlist(wishlist.includes(details?.id));
+  }, [wishlist, details?.id]);
 
   const [selectedPoster] = useState(details.poster_path);
-
 
   return (
     <div className="relative w-full">
