@@ -7,7 +7,6 @@ import { MovieIdContext } from '../context/MovieIdContext';
 
 
 export default function DetailsHero({ details }) {
-  console.log(details.id);
   const context = useContext(MovieIdContext);
   const { favorites, wishlist } = context;
   if (!details) return null;
