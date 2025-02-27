@@ -9,22 +9,24 @@ const MovieIdProvider = ({ children }) => {
   const [wishlist, setWishlist] = useState([]);
 
   function handleAddToStorage(id, icon) {
-    console.log({ id });
-    console.log({favorites});
     if (icon === 'wishlist') {
-      const wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+      const wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
       if (!wishlist.includes(id)) {
         setWishlist([...wishlist, id]);
       } else {
-        const updatedWishlist = wishlist.filter((wishlistId) => wishlistId !== id);
+        const updatedWishlist = wishlist.filter(
+          (wishlistId) => wishlistId !== id
+        );
         setWishlist(updatedWishlist);
       }
     } else if (icon === 'heart') {
-      const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+      const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
       if (!favorites.includes(id)) {
         setFavorites([...favorites, id]);
       } else {
-        const updatedFavorites = favorites.filter((favoriteId) => favoriteId !== id);
+        const updatedFavorites = favorites.filter(
+          (favoriteId) => favoriteId !== id
+        );
         setFavorites(updatedFavorites);
       }
     }
@@ -39,9 +41,7 @@ const MovieIdProvider = ({ children }) => {
   };
 
   return (
-    <MovieIdContext.Provider value={value}>
-      {children}
-    </MovieIdContext.Provider>
+    <MovieIdContext.Provider value={value}>{children}</MovieIdContext.Provider>
   );
 };
 

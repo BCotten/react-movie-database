@@ -10,8 +10,6 @@ import { InfoIcon, ThumbUpIcon } from './Icons';
 import { MovieIdContext } from './context/MovieIdContext';
 import { useContext, useEffect, useState } from 'react';
 
-
-
 export default function MovieCard({ details }) {
   const context = useContext(MovieIdContext);
   const { favorites, wishlist } = context;
@@ -20,7 +18,6 @@ export default function MovieCard({ details }) {
   const [isFavorite, setFillFavorites] = useState(false);
   const [isInWishlist, setFillWishlist] = useState(false);
 
-
   useEffect(() => {
     setFillFavorites(favorites.includes(details?.id));
   }, [favorites, details?.id]);
@@ -28,7 +25,6 @@ export default function MovieCard({ details }) {
   useEffect(() => {
     setFillWishlist(wishlist.includes(details?.id));
   }, [wishlist, details?.id]);
-
 
   const date = details?.release_date
     ? changeDateFormat(details.release_date)
@@ -43,7 +39,7 @@ export default function MovieCard({ details }) {
   if (!details) return <Loader />;
 
   return (
-    <li className="max-w-[250px] sm:max-w-[200px] md:max-w-[220px] lg:max-w-[250px] font-base text-(--color-accent-blue-400)">
+    <div className="max-w-[250px] sm:max-w-[200px] md:max-w-[220px] lg:max-w-[250px] font-base text-(--color-accent-blue-400)">
       <div className="group relative">
         <Link to={id} className="block">
           <img
@@ -68,7 +64,7 @@ export default function MovieCard({ details }) {
               icon="wishlist"
               id={details.id}
               className=""
-              fill={isInWishlist ? "full" : "none"}
+              fill={isInWishlist ? 'full' : 'none'}
               iconClassName="size-6 sm:size-7 md:size-8 lg:size-9 hover:text-(--color-secondary-500) hover:bg-(--color-accent-blue-400) hover:rounded-full"
             />
             <Link to={id} className="justify-self-end ml-auto">
@@ -90,11 +86,11 @@ export default function MovieCard({ details }) {
           icon="heart"
           id={details.id}
           className=""
-          fill={isFavorite ? "full" : "none"}
+          fill={isFavorite ? 'full' : 'none'}
           stroke="currentColor"
           iconClassName="size-6 sm:size-7 md:size-8 lg:size-9 text-(--color-accent-blue-400) hover:text-(--color-secondary-500) hover:bg-(--color-accent-blue-400) hover:rounded-full"
         />
       </div>
-    </li>
+    </div>
   );
 }

@@ -16,8 +16,6 @@ export default function PageMovieDetails() {
     queryFn: () => getSingleMovieData(id),
   });
 
-  console.log(data);
-
   return (
     <main className="text-(--color-neutral-light)">
       <section>
@@ -40,8 +38,6 @@ export default function PageMovieDetails() {
 }
 
 const getSingleMovieData = async (movieID) => {
-  console.log(movieID);
-
   const response = await fetch(
     `${API_CONFIG.baseUrl}/movie/${movieID}?append_to_response=videos,images,credits,reviews,language=en-US`,
     {

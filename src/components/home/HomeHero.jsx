@@ -5,7 +5,6 @@ import changeDateFormat from '../../utilities/changeDateFormat';
 import changeRating from '../../utilities/changeRating';
 import Loader from '../Loader';
 import { API_CONFIG } from '../../config/api';
-import { ChevronDoubleRightIcon } from '../Icons';
 import IconButton from '../IconButton';
 import { MovieIdContext } from '../context/MovieIdContext';
 import { useContext, useEffect, useState } from 'react';
@@ -70,19 +69,14 @@ export default function HomeHero({ details }) {
                 id={details.id}
                 className="bg-(--color-primary-500) p-2 rounded-full hover:text-(--color-secondary-500) hover:bg-(--color-accent-blue-400) hover:rounded-full"
                 fill={isInWishlist ? 'full' : 'none'}
-
-
                 iconClassName="size-10"
-
               />
               <IconButton
                 icon="heart"
                 id={details.id}
                 className="bg-(--color-primary-500) p-2 rounded-full hover:text-(--color-secondary-500) hover:bg-(--color-accent-blue-400) hover:rounded-full"
                 fill={isFavorite ? 'full' : 'none'}
-
                 iconClassName="size-10"
-
               />
             </div>
           </div>

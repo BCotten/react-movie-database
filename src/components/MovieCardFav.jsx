@@ -13,7 +13,6 @@ import { API_CONFIG } from '../config/api';
 import { useQuery } from '@tanstack/react-query';
 
 export default function MovieCardFav({ movieDetails }) {
-  console.log(movieDetails);
   const movieId = movieDetails;
 
   const { data } = useQuery({
@@ -25,8 +24,6 @@ export default function MovieCardFav({ movieDetails }) {
   const context = useContext(MovieIdContext);
   const { favorites, wishlist } = context;
   const id = `/movie/id${details?.id}`;
-
-
 
   const [isFavorite, setFillFavorites] = useState(false);
   const [isInWishlist, setFillWishlist] = useState(false);
@@ -52,7 +49,7 @@ export default function MovieCardFav({ movieDetails }) {
   if (!details) return <Loader />;
 
   return (
-    <li className="max-w-[250px] sm:max-w-[200px] md:max-w-[220px] lg:max-w-[250px] font-base text-(--color-accent-blue-400)">
+    <div className="max-w-[250px] sm:max-w-[200px] md:max-w-[220px] lg:max-w-[250px] font-base text-(--color-accent-blue-400)">
       <div className="group relative">
         <Link to={id} className="block">
           <img
@@ -104,13 +101,11 @@ export default function MovieCardFav({ movieDetails }) {
           iconClassName="size-6 sm:size-7 md:size-8 lg:size-9 text-(--color-accent-blue-400) hover:text-(--color-secondary-500) hover:bg-(--color-accent-blue-400) hover:rounded-full"
         />
       </div>
-    </li>
+    </div>
   );
 }
 
 const getSingleMovieData = async (movieID) => {
-  console.log(movieID);
-
   const response = await fetch(
     `${API_CONFIG.baseUrl}/movie/${movieID}?append_to_response=videos,images,credits,reviews,language=en-US`,
     {
@@ -126,4 +121,3 @@ const getSingleMovieData = async (movieID) => {
   }
   return response.json();
 };
-
