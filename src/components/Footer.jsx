@@ -8,7 +8,7 @@ export default function Footer() {
       <section className="flex flex-col items-center md:items-start space-y-3 mb-4 md:mb-0">
         <h1>
           <NavLink to="/" aria-label="Moviefix Home">
-            <img src="/moviefix-logo.png" alt="moviefix" className="h-12" />
+            <img src="/movie-database/moviefix-logo.png" alt="moviefix" className="h-12" />
           </NavLink>
         </h1>
         <ul className="flex space-x-4">

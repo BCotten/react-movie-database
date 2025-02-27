@@ -19,7 +19,7 @@ export default function PageAbout() {
 
         <div className="pt-8 sm:pt-12 md:pt-16 px-4 sm:px-6 md:px-8">
           <img
-            src="/tmdb.svg"
+            src="/movie-database/tmdb.svg"
             alt="The Movie Database"
             className="w-full max-w-[90%] sm:max-w-[80%] md:max-w-[70%] h-auto mx-auto"
           />
