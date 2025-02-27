@@ -7,7 +7,7 @@ export default function PageAbout() {
         <h1 className="text-2xl md:text-4xl font-bold mb-5">About MovieFix</h1>
         <p className="text-base md:text-lg leading-relaxed mb-3 max-w-[90%] sm:max-w-[700px] mx-auto">
           Welcome to MovieFix, your ultimate destination for all things movies!
-          Whether you're searching for the latest blockbusters, timeless
+          Whether you&apos;re searching for the latest blockbusters, timeless
           classics, or hidden gems, MovieFix has you covered. Explore detailed
           reviews, cast and crew insights, trailers, and personalized
           recommendations tailored to your taste.

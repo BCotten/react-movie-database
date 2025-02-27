@@ -20,10 +20,11 @@ export default function Reviews({ details }) {
 
       {/* Review Container */}
       <div className="flex flex-col items-center justify-center min-h-[300px] mb-[200px] sm:mb-0">
-
         {/* Current Review */}
         <div className="text-center max-w-2xl mx-auto">
-          <p className="text-lg italic">"{randomReviews[currentReviewIndex]?.content}"</p>
+          <p className="text-lg italic">
+            &quot;{randomReviews[currentReviewIndex]?.content}&quot;
+          </p>
           <p className="mt-4 font-semibold">
             - {randomReviews[currentReviewIndex]?.author}
           </p>

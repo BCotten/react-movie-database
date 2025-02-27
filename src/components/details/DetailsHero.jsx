@@ -1,24 +1,30 @@
 /* eslint-disable react/prop-types */
-import React, { useState, useRef } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import changeDateFormat from '../../utilities/changeDateFormat';
 import changeRating from '../../utilities/changeRating';
 import IconButton from '../IconButton';
+import { MovieIdContext } from '../context/MovieIdContext';
+
 
 export default function DetailsHero({ details }) {
+  console.log(details.id);
+  const context = useContext(MovieIdContext);
+  const { favorites, wishlist } = context;
   if (!details) return null;
 
-  const [selectedPoster, setSelectedPoster] = useState(details.poster_path);
-  const thumbnailsRef = useRef(null);
+  const [isFavorite, setFillFavorites] = useState(false);
+  const [isInWishlist, setFillWishlist] = useState(false);
 
-  const scrollThumbnails = (direction) => {
-    if (thumbnailsRef.current) {
-      const scrollAmount = 100;
-      thumbnailsRef.current.scrollBy({
-        left: direction === 'left' ? -scrollAmount : scrollAmount,
-        behavior: 'smooth',
-      });
-    }
-  };
+  useEffect(() => {
+      setFillFavorites(favorites.includes(details?.id));
+    }, [favorites, details?.id]);
+
+    useEffect(() => {
+      setFillWishlist(wishlist.includes(details?.id));
+    }, [wishlist, details?.id]);
+
+  const [selectedPoster] = useState(details.poster_path);
+
 
   return (
     <div className="relative w-full">
@@ -95,14 +101,14 @@ export default function DetailsHero({ details }) {
                     icon="wishlist"
                     id={details.id}
                     className="bg-(--color-primary-500) p-1 sm:p-2 rounded-full hover:text-(--color-secondary-500) hover:bg-(--color-accent-blue-400) hover:rounded-full"
-                    fill="none"
+                    fill={isInWishlist ? 'full' : 'none'}
                     iconClassName="size-6 sm:size-8"
                   />
                   <IconButton
-                    icon="favorite"
+                    icon="heart"
                     id={details.id}
                     className="bg-(--color-primary-500) p-1 sm:p-2 rounded-full hover:text-(--color-secondary-500) hover:bg-(--color-accent-blue-400) hover:rounded-full"
-                    fill="none"
+                    fill={isFavorite ? 'full' : 'none'}
                     iconClassName="size-6 sm:size-8"
                   />
                 </div>
