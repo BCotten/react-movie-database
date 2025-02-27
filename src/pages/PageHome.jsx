@@ -77,7 +77,6 @@ export default function PageHome() {
 }
 
 const getMovieData = async (movieList) => {
-  console.log(movieList);
   if (movieList === null || movieList === 'filter_options') {
     movieList = 'now_playing';
   }

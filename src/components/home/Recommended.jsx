@@ -86,7 +86,6 @@ export default function Recommended({ details }) {
 }
 
 const getSingleMovieData = async (movieID) => {
-  console.log(movieID);
 
   const response = await fetch(
     `${API_CONFIG.baseUrl}/movie/${movieID}?append_to_response=images,recommendations,language=en-US`,
