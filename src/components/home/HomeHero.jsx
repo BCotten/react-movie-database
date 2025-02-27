@@ -18,13 +18,13 @@ export default function HomeHero({ details }) {
   const [isFavorite, setFillFavorites] = useState(false);
   const [isInWishlist, setFillWishlist] = useState(false);
 
-    useEffect(() => {
-      setFillFavorites(favorites.includes(details?.id));
-    }, [favorites, details?.id]);
+  useEffect(() => {
+    setFillFavorites(favorites.includes(details?.id));
+  }, [favorites, details?.id]);
 
-    useEffect(() => {
-      setFillWishlist(wishlist.includes(details?.id));
-    }, [wishlist, details?.id]);
+  useEffect(() => {
+    setFillWishlist(wishlist.includes(details?.id));
+  }, [wishlist, details?.id]);
 
   const date = changeDateFormat(details?.release_date);
   const rating = changeRating(details?.vote_average);
@@ -75,14 +75,14 @@ export default function HomeHero({ details }) {
                 icon="wishlist"
                 id={details.id}
                 className="bg-(--color-primary-500) p-2 rounded-full hover:text-(--color-secondary-500) hover:bg-(--color-accent-blue-400) hover:rounded-full"
-                fill={isInWishlist ? "full" : "none"}
+                fill={isInWishlist ? 'full' : 'none'}
                 iconClassName="size-10"
               />
               <IconButton
                 icon="heart"
                 id={details.id}
                 className="bg-(--color-primary-500) p-2 rounded-full hover:text-(--color-secondary-500) hover:bg-(--color-accent-blue-400) hover:rounded-full"
-                fill={isFavorite? "full" : "none"}
+                fill={isFavorite ? 'full' : 'none'}
                 iconClassName="size-10"
               />
             </div>

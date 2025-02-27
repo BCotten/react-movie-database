@@ -3,7 +3,7 @@ import React from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { API_CONFIG } from '../../config/api';
 import Loader from '../Loader';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import changeDateFormat from '../../utilities/changeDateFormat';
 import changeRating from '../../utilities/changeRating';
 
